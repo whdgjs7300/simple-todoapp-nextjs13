@@ -4,7 +4,7 @@ import React, { FormEventHandler, useState } from 'react'
 import { FaRegEdit } from "react-icons/fa";
 import { FiTrash2 } from "react-icons/fi";
 import Modal from './Modal';
-import {  editTodo } from '@/api';
+import {  deleteTodo, editTodo } from '@/api';
 import { v4 as uuidv4 } from 'uuid';
 import { useRouter } from 'next/navigation';
 
@@ -29,6 +29,13 @@ const Task: React.FC<TaskProps>= ({ task }) => {
         setOpenModalEdit(false);
         router.refresh();
     }
+
+    const handleDeleteTask = async (id: string) => {
+        await deleteTodo(id);
+        setOpenModalDeleted(false);
+        router.refresh();
+    }
+
     return (
     
         <tr key={task.id}>
@@ -51,7 +58,20 @@ const Task: React.FC<TaskProps>= ({ task }) => {
                         </div>
                     </form>
                 </Modal >
-                <FiTrash2 cursor='pointer'  className='text-red-500'  size={20}/>
+                <FiTrash2 onClick={()=> setOpenModalDeleted(true)}
+                cursor='pointer'  className='text-red-500'  size={20}/>
+                <Modal 
+                setModalOpen = {setOpenModalDeleted} 
+                modalOpen= {openModalDeleted}> 
+                    <h3 className='text-lg'>Are you sure, you want to delete this task ?</h3>
+                    <div className='modal-action'>
+                        <button
+                        className='btn'
+                        onClick={()=> handleDeleteTask(task.id) }>
+                            Yes 
+                        </button>
+                    </div>
+                </Modal >
             </td>
         </tr>
     
