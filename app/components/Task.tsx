@@ -46,7 +46,7 @@ const Task: React.FC<TaskProps>= ({ task }) => {
                 setModalOpen = {setOpenModalEdit} 
                 modalOpen= {openModalEdit}> 
                     <form onSubmit={handleSubmitEditTodo}>
-                        <h3 className='font-bold text-lg'>Edit Task</h3>
+                        <h3 className='font-bold text-lg'>수정하기</h3>
                         <div className='modal-action'>
                         <input 
                         value={taskToEdit} 
@@ -54,7 +54,7 @@ const Task: React.FC<TaskProps>= ({ task }) => {
                         placeholder="Type here" 
                         className="input input-bordered w-full "
                         onChange={e => setTaskToEdit(e.target.value)} />
-                        <button type='submit' className='btn'>submit</button>
+                        <button type='submit' className='btn'>수정</button>
                         </div>
                     </form>
                 </Modal >
@@ -63,12 +63,12 @@ const Task: React.FC<TaskProps>= ({ task }) => {
                 <Modal 
                 setModalOpen = {setOpenModalDeleted} 
                 modalOpen= {openModalDeleted}> 
-                    <h3 className='text-lg'>Are you sure, you want to delete this task ?</h3>
+                    <h3 className='text-lg'>선택한 리스트를 정말로 삭제하시겠습니까 ?</h3>
                     <div className='modal-action'>
                         <button
                         className='btn'
                         onClick={()=> handleDeleteTask(task.id) }>
-                            Yes 
+                            삭제 
                         </button>
                     </div>
                 </Modal >

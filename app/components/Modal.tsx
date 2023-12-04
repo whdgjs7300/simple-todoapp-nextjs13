@@ -16,7 +16,7 @@ const Modal : React.FC<ModalProps> = ({modalOpen, setModalOpen , children}) => {
             <form method="dialog">
                 {/* if there is a button in form, it will close the modal */}
                 <button onClick={()=> setModalOpen(false)}
-                className="btn">Close</button>
+                className="btn">닫기</button>
             </form>
             
             </div>

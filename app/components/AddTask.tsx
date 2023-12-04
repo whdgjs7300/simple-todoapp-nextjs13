@@ -26,7 +26,7 @@ const AddTask = () => {
     return (
     <div>
         <button onClick={()=> setModalOpen(true)} 
-        className='btn btn-primary w-full'>Add New Task
+        className='btn btn-primary w-full'>할일을 추가하세요
         <FaPlus size={15} className="ml-2" />
         </button>
 
@@ -34,7 +34,7 @@ const AddTask = () => {
         setModalOpen = {setModalOpen} 
         modalOpen= {modalOpen}> 
             <form onSubmit={handleSubmitNewTodo}>
-                <h3 className='font-bold text-lg'>Add new Task</h3>
+                <h3 className='font-bold text-lg'>추가할 일을 입력하세요</h3>
                 <div className='modal-action'>
                 <input 
                 value={newTaskValue} 
@@ -42,7 +42,7 @@ const AddTask = () => {
                 placeholder="Type here" 
                 className="input input-bordered w-full w-full"
                 onChange={e => setNewTaskValue(e.target.value)} />
-                <button type='submit' className='btn'>submit</button>
+                <button type='submit' className='btn'>추가</button>
                 </div>
             </form>
         </Modal >
